@@ -9,6 +9,7 @@
 
 function daniiltserin_add_admin_page()
 {
+    //generate admin page
     //use hook to activate admin page
     //1. Name of menu page
     //2. Text in menu
@@ -32,11 +33,29 @@ function daniiltserin_add_admin_page()
     //    75 - Tools
     //    80 - Settings
     //    99 - Separator
-    add_menu_page("Daniiltserin theme options", "Daniiltserin", "manage_options", 'daniiltserin-theme', 'daniiltserin_theme_create_page', "", 110);
+    add_menu_page("Daniiltserin theme options", "Daniiltserin", "manage_options", 'daniiltserin_theme', 'daniiltserin_theme_create_page', "", 110);
+
+    //generate sub pages
+    //1. string parent slug;
+    //2. string page title;
+    //3. string menu title
+    //4. access level;
+    //5. string slug;
+    add_submenu_page("daniiltserin_theme", 'Daniiltserin theme Settings', 'Settings', "manage_options",
+        'daniiltserin_theme_settings', 'daniiltserin_theme_create_settings_page');
 }
 add_action("admin_menu", 'daniiltserin_add_admin_page');
 
 function daniiltserin_theme_create_page()
+{
+
+}
+
+/**
+ * generation sub menu page for admin theme
+ * @return [type] [description]
+ */
+function daniiltserin_theme_create_settings_page()
 {
 
 }
